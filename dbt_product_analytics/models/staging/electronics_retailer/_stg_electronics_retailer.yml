@@ -1,0 +1,49 @@
+
+version: 2
+
+models:
+  - name: stg_electronics_retailer__customers
+    description: "Customer data with basic cleaning applied, one row per customer"
+    columns:
+      - name: customer_key
+        description: "Primary key to identify customers"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_electronics_retailer__exchange_rates
+    description: "Daily currency exchange rates to USD"
+
+  - name: stg_electronics_retailer__products
+    description: "Product data with basic cleaning applied, one row per product"
+    columns:
+      - name: product_key
+        description: "Primary key to identify products"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_electronics_retailer__sales
+    description: "Sales data with basic cleaning applied, one row per order line item"
+    columns:
+      - name: order_number
+        description: "Unique ID for each order"
+        data_tests:
+          - not_null
+      - name: line_item
+        description: "Identifies individual products purchased as part of an order"
+        data_tests:
+          - not_null
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "order_number || '-' || line_item"
+
+  - name: stg_electronics_retailer__stores
+    description: "Store data with basic cleaning applied, one row per store"
+    columns:
+      - name: store_key
+        description: "Primary key to identify stores"
+        data_tests:
+          - unique
+          - not_null

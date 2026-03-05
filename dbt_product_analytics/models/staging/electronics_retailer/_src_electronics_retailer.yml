@@ -1,0 +1,41 @@
+sources:
+  - name: electronics_retailer
+    description: "Data about customers, products, sales, and stores of a global electronics retailer"
+    database: airbyte_electronics_db
+    schema: airbyte_electronics_schema
+    tables:
+      - name: customers
+        columns:
+          - name: customerkey
+            data_tests:
+              - unique
+              - not_null
+
+      - name: exchange_rates
+
+      - name: products
+        columns:
+          - name: productkey
+            data_tests:
+              - unique
+              - not_null
+
+      - name: sales
+        columns:
+          - name: '"ORDER NUMBER"'
+            data_tests:
+              - not_null
+          - name: '"LINE ITEM"'
+            data_tests:
+              - not_null
+        data_tests:
+          - unique:
+              arguments:
+                column_name: '"ORDER NUMBER" || ''-'' || "LINE ITEM"'
+
+      - name: stores
+        columns:
+          - name: storekey
+            data_tests:
+              - unique
+              - not_null
