@@ -10,7 +10,7 @@ import os
 import pandas as pd
 
 
-rootdir = './source_data'
+rootdir = './data/source_data'
 
 for subdir, dirs, files in os.walk(rootdir):
     for file in files:
