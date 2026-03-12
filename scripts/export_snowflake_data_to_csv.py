@@ -26,7 +26,8 @@ transformed_tables = [
     'dim_core__customers',
     'dim_core__products',
     'dim_core__stores',
-    'dim_core__dates'
+    'dim_core__dates',
+    'mrt_marketing__cohort'
 ]
 
 os.makedirs('../data/transformed_data', exist_ok=True)
