@@ -30,10 +30,10 @@ The data was originally ingested into Snowflake from Google Sheets using Airbyte
 2. Create a Snowflake account and load the data
 3. Clone the repository
 ```
-git clone https://github.com/yradhika04/Electronics-Product-Analytics.git
+https://github.com/yradhika04/Electronics-Sales-Analytics.git
 ```
 ```
-cd Electronics-Product-Analytics
+cd Electronics-Sales-Analytics
 ```
 4. Set up a Python virtual environment 
 ``` 
@@ -60,7 +60,7 @@ nano ~/.dbt/profiles.yml
 ```
 The content of the profiles.yml file, replace the values of the parameter with your own credentials: 
 ```
-dbt_product_analytics:
+dbt_sales_analytics:
   outputs:
     dev:
       type: snowflake
@@ -77,7 +77,7 @@ dbt_product_analytics:
 
 8. Navigate to the dbt project folder
 ```
-cd dbt_product_analytics
+cd dbt_sales_analytics
 ```
 
 9. Check connection with Snowflake
